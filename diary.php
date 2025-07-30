@@ -6,7 +6,7 @@
     }
 
     if(array_key_exists("id", $_SESSION)) {
-        echo "<p class='fw-bold'>Logged in! <br><a href='index.php?logout=1' class='btn btn-primary'>Log out</a></p>";
+        echo "<p class='fw-bold fixed-top'>Logged in! <br><a href='index.php?logout=1' class='btn btn-primary'>Log out</a></p>";
     } else {
         header("Location: index.php");
     }
@@ -71,14 +71,11 @@
             
             <nav class="navbar bg-primary bg-gradient">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <h2 class="text-center w-100 py-2">My Diary</h2>
                 </div>
             </nav>
-                
-            <textarea id="diary" name="diaryContent" class="form-control">
-                <?php echo htmlspecialchars($diaryContent); ?>
-            </textarea>
-        
+            <textarea id="diary" name="diaryContent" class="form-control"><?php echo htmlspecialchars($diaryContent); ?></textarea>
+
         </div>
 
         <script type="text/javascript">
