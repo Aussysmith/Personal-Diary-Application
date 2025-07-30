@@ -6,7 +6,7 @@
     }
 
     if(array_key_exists("id", $_SESSION)) {
-        echo "<p class='fw-bold fixed-top m-5'><a href='index.php?logout=1' class='btn btn-primary'>Log out</a></p>";
+        echo "<p class='fw-bold fixed-top m-5'><a href='index.php?logout=1' class='btn btn-secondary'>Log out</a></p>";
     } else {
         header("Location: index.php");
     }
@@ -24,7 +24,7 @@
 
     $diaryContent = "";
     $link = mysqli_connect("localhost", "root", "", "diary_db");
-    
+
     $query = "SELECT diary FROM users WHERE id = " . 
     mysqli_real_escape_string($link, $_SESSION['id']) . " LIMIT 1";
 
@@ -59,9 +59,13 @@
             #diary {
                 width: 100%;
                 height: 90%;
-                background: #add8e6;
+                background: white;
                 opacity: 80%;
                 font-weight: bold;
+            }
+
+            .navbar {
+                background-color: #A08565;
             }
         </style>
     </head>
@@ -70,9 +74,9 @@
 
         <div class="container">
             
-            <nav class="navbar bg-primary bg-gradient">
+            <nav class="navbar">
                 <div class="container-fluid">
-                    <h2 class="text-center w-100 py-2">My Diary</h2>
+                    <h2 id="header" class="text-center w-100 py-2"><em><strong>Secret Diary</em></strong></h2>
                 </div>
             </nav>
             <textarea id="diary" name="diaryContent" class="form-control"><?php echo htmlspecialchars($diaryContent); ?></textarea>
