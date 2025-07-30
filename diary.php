@@ -6,7 +6,7 @@
     }
 
     if(array_key_exists("id", $_SESSION)) {
-        echo "<p class='fw-bold fixed-top'>Logged in! <br><a href='index.php?logout=1' class='btn btn-primary'>Log out</a></p>";
+        echo "<p class='fw-bold fixed-top m-5'><a href='index.php?logout=1' class='btn btn-primary'>Log out</a></p>";
     } else {
         header("Location: index.php");
     }
