@@ -11,19 +11,20 @@
         header("Location: index.php");
     }
 
-   if(array_key_exists("content", $_POST)) {
-    $link = mysqli_connect("localhost", "root", "", "diary_db");
-    
-    $query = "UPDATE users SET diary = '" .
-        mysqli_real_escape_string($link, $_POST['content']) . 
-        "' WHERE id = " . mysqli_real_escape_string($link, $_SESSION['id']) . " LIMIT 1";
+    if(array_key_exists("content", $_POST)) {
+        $link = mysqli_connect("localhost", "root", "", "diary_db");
+        
+        $query = "UPDATE users SET diary = '" .
+            mysqli_real_escape_string($link, $_POST['content']) . 
+            "' WHERE id = " . mysqli_real_escape_string($link, $_SESSION['id']) . " LIMIT 1";
 
-    mysqli_query($link, $query);
-    exit(); 
+        mysqli_query($link, $query);
+        exit(); 
     }
 
     $diaryContent = "";
     $link = mysqli_connect("localhost", "root", "", "diary_db");
+    
     $query = "SELECT diary FROM users WHERE id = " . 
     mysqli_real_escape_string($link, $_SESSION['id']) . " LIMIT 1";
 
