@@ -59,7 +59,7 @@
                 width: 100%;
                 height: 90%;
                 background: #add8e6;
-                opacity: 50%;
+                opacity: 80%;
                 font-weight: bold;
             }
         </style>
@@ -79,13 +79,11 @@
         </div>
 
         <script type="text/javascript">
-            $(document).ready(function() {
-                $("#diary").on('input', function() {
-                    $.ajax({
-                        method: "POST",
-                        url: "diary.php",
-                        data: { content: $("#diary").val() }
-                    });
+          $("#diary").bind('input propertychange', function() {
+                $.ajax({
+                    method: "POST",
+                    url: "diary.php",
+                    data: {content: $("#diary").val()}
                 });
             });
         </script>
